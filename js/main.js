@@ -1,21 +1,35 @@
 $(document).ready(function(){
 
+		//Fixing chrome anchor tags https://stackoverflow.com/questions/8996852/load-and-execute-order-of-scripts
+		$('a[href*="#"]:not([href="#"])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			  var target = $(this.hash);
+			  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			  if (target.length) {
+				$('html, body').animate({
+				  scrollTop: target.offset().top
+				}, 1000);
+				return false;
+			  }
+			}
+		  });
+		  
 	//Navigation menu scrollTo
-	$('header nav ul li a').click(function(event){
-		event.preventDefault();
-		var section = $(this).attr('href');
-		var section_pos = $(section).position();
+	// $('header nav ul li a').click(function(event){
+	// 	event.preventDefault();
+	// 	var section = $(this).attr('href');
+	// 	var section_pos = $(section).position();
 
-		if(section_pos){
-			$(window).scrollTo({top:section_pos.top, left:'0px'}, 1000);
-		}
+	// 	if(section_pos){
+	// 		$(window).scrollTo({top:section_pos.top, left:'0px'}, 1000);
+	// 	}
 		
-	});
+	// });
 
-	$('.app_link').click(function(e){
-		event.preventDefault();
-		$(window).scrollTo({top:$("#hero").position().top, left:'0px'}, 1000);		
-	});
+	// $('.app_link').click(function(e){
+	// 	event.preventDefault();
+	// 	$(window).scrollTo({top:$("#hero").position().top, left:'0px'}, 1000);		
+	// });
 
 
 
@@ -29,12 +43,6 @@ $(document).ready(function(){
 		$('header nav').toggleClass('show');
 		$('header .burger_icon').toggleClass('active');
 	});
-
-	
-
-
-
-
 
 
 	//wow.js on scroll animations initialization
@@ -55,7 +63,7 @@ $(document).ready(function(){
 
 
 	//parallax effect initialization
-	$('.hero').parallax("50%", 0.3);
+	// $('.hero').parallax("50%", 0.3);
 
 
 
@@ -65,16 +73,16 @@ $(document).ready(function(){
 
 
 	//Nice scroll initialization
-	$("html").niceScroll({
-		scrollspeed: 50,
-		autohidemode : false,
-		cursorwidth : 8,
-		cursorborderradius: 8,
-		cursorborder : "0",
-		background : "rgba(48, 48, 48, .4)",
-		cursorcolor : '#1f1f1f',
-		zindex : 999
-	});
+	// $("html").niceScroll({
+	// 	scrollspeed: 50,
+	// 	autohidemode : false,
+	// 	cursorwidth : 8,
+	// 	cursorborderradius: 8,
+	// 	cursorborder : "0",
+	// 	background : "rgba(48, 48, 48, .4)",
+	// 	cursorcolor : '#1f1f1f',
+	// 	zindex : 999
+	// });
 
 
 
